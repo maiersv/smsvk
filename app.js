@@ -15,7 +15,7 @@ config.tokens.map(x => {
 setInterval(() => {
     console.log("\n")
 	config.tokens.map(x => {
-		rq(`https://api.vk.com/method/messages.createChat?user_ids=${config.owner_id}&access_token=${x}&v=5.83&title=${encodeURI(hearts[Math.floor(Math.random() * hearts.length)])}`).then(res => {
+		rq(`https://api.vk.com/method/messages.createChat?user_ids=${config.owner_id.join(',')}&access_token=${x}&v=5.83&title=${encodeURI(hearts[Math.floor(Math.random() * hearts.length)])}`).then(res => {
 			if(!res['response']) console.log(`\x1b[31m> \x1b[0mБеседа не была создана | ${x.substring(0, 5)} (${res['error'].error_msg})`);
 			else console.log(`\x1b[32m> \x1b[0mБеседа создана.`);
 		});
