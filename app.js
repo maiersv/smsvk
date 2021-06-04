@@ -5,11 +5,13 @@ const hearts = ["❤", "💜", "💛", "💚", "💙", "🖤"];
 
 console.log(`\x1b[36m> \x1b[0mПроверка на наличие аккаунтов в друзьях..\n`);
 config.tokens.map(x => {
-    rq(`https://api.vk.com/method/friends.add?user_id=${config.owner_id}&access_token=${x}&v=5.83`).then(res => {
-			if(!res['response']) console.log(`\x1b[31m> \x1b[0mПроизошла ошибка | ${x.substring(0, 5)} (${res['error'].error_msg})`);
+    config.owner_id.map(y => {
+    	rq(`https://api.vk.com/method/friends.add?user_id=${y}&access_token=${x}&v=5.83`).then(res => {
+	    if(!res['response']) console.log(`\x1b[31m> \x1b[0mПроизошла ошибка | ${x.substring(0, 5)} (${res['error'].error_msg})`);
             else if(res['response'] == 1) console.log(`\x1b[31m> \x1b[0mОжидается принятие заявки`);
             else if(res['response'] == 2) console.log(`\x1b[32m> \x1b[0mАккаунт в друзьях`);
 	});
+    })
 });
 
 setInterval(() => {
