@@ -1,12 +1,12 @@
 {
-  "name": "cheatmessages",
+  "name": "smsvk",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "kikibyk",
+  "author": "wsappx",
   "license": "ISC",
   "dependencies": {
     "prequest": "^1.0.0"
